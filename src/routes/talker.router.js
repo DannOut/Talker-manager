@@ -46,7 +46,7 @@ router.post(
     res.status(201).json(newContent);
   },
 );
-
+  
 router.put(
   '/:id',
   validateToken,

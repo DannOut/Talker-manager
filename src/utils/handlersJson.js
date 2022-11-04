@@ -8,7 +8,7 @@ const readFileFunc = async () => JSON.parse(await readFile(filePath));
 
 const writeFileFunc = async (newId) => {
   const content = await readFileFunc();
-  const updatedValue = JSON.stringify([...content, { ...newId }]);
+  const updatedValue = JSON.stringify([...content, newId]);
   await writeFile(filePath, updatedValue, null);
 };
 
