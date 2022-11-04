@@ -3,6 +3,7 @@ const validateAge = require('../middlewares/validateAge');
 const validateTalk = require('../middlewares/validateTalk');
 const validateName = require('../middlewares/validateName');
 const validateToken = require('../middlewares/validateToken');
+const validateDate = require('../middlewares/validateDate');
 const handlers = require('../utils/handlersJson');
 
 const router = express.Router();
@@ -39,6 +40,7 @@ router.post(
   validateName,
   validateAge,
   validateTalk,
+  validateDate,
   async (req, res) => {
     const content = req.body;
     const newContent = { id: await handlers.NextId(), ...content };
@@ -53,6 +55,7 @@ router.put(
   validateName,
   validateAge,
   validateTalk,
+  validateDate,
   async (req, res) => {
     const { id } = req.params;
     const personInfo = req.body;
