@@ -12,7 +12,7 @@ router.get('/search', validateToken, async (req, res) => {
   const content = await handlers.readFileFunc();
   if (q) {
     const filteredInfo = content.filter(({ name }) => name.includes(q));
-  return res.status(200).json(filteredInfo);
+    return res.status(200).json(filteredInfo);
   }
 });
 
