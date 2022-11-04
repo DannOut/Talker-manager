@@ -11,10 +11,8 @@ const router = express.Router();
 router.get('/search', validateToken, async (req, res) => {
   const { q } = req.query;
   const content = await handlers.readFileFunc();
-  if (q) {
-    const filteredInfo = content.filter(({ name }) => name.includes(q));
-    return res.status(200).json(filteredInfo);
-  }
+  const filteredInfo = content.filter(({ name }) => name.includes(q));
+  return res.status(200).json(filteredInfo);
 });
 
 router.get('/:id', async (req, res) => {
